@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackbodyradiation Gym</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <h1>Blackbodyradiation Gym</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Landing Section -->
+    <section id="landing">
+        <div class="landing-text">
+            <h2>Unlock Your Potential</h2>
+            <p>Join the future of fitness at Blackbodyradiation Gym.</p>
+            <button onclick="scrollToContact()">Join Us Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Blackbodyradiation Gym, where innovation meets fitness. Train like a machine with our robotic-themed gym designed to help you maximize your potential.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service">
+            <h3>Personal Training</h3>
+            <p>Get one-on-one training sessions tailored to your needs.</p>
+        </div>
+        <div class="service">
+            <h3>Group Classes</h3>
+            <p>Join our robotic-enhanced group classes for a dynamic workout experience.</p>
+        </div>
+        <div class="service">
+            <h3>Virtual Fitness</h3>
+            <p>Access our virtual fitness sessions from anywhere in the world.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Blackbodyradiation Gym. All Rights Reserved.</p>
+    </footer>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+        import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCxILLRMb_wQAJLsnlQWrrQFRDr3Qnm7cI",
+          authDomain: "blackbodyradiation-gym.firebaseapp.com",
+          projectId: "blackbodyradiation-gym",
+          storageBucket: "blackbodyradiation-gym.appspot.com",
+          messagingSenderId: "378775413483",
+          appId: "1:378775413483:web:354b5edfe8543a9c4454ae",
+          measurementId: "G-3BBLHPSRBX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Contact form submission to Firestore
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();  // Prevent form submission
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                // Add a new document in Firestore with the contact form data
+                await addDoc(collection(db, "contacts"), {
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: new Date()
+                });
+                alert("Message sent successfully!");
+                contactForm.reset();  // Clear the form
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                alert("Error sending message. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ddd;
+    scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+header {
+    background-color: #2f4858;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav h1 {
+    font-size: 2rem;
+    color: #f6ae2d;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #86bbd8;
+}
+
+/* Landing Section */
+#landing {
+    height: 100vh;
+    background-image: url('images/robotic-bg.jpg'); /* Add a futuristic background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-text {
+    text-align: center;
+    color: #f6ae2d;
+}
+
+.landing-text h2 {
+    font-size: 4rem;
+    text-shadow: 0 0 10px #86bbd8;
+}
+
+.landing-text button {
+    padding: 10px 20px;
+    background-color: #33658a;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.landing-text button:hover {
+    background-color: #f6ae2d;
+}
+
+/* About Section */
+#about {
+    padding: 3rem 2rem;
+    background-color: #2f4858;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    color: #f6ae2d;
+}
+
+#about p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+/* Services Section */
+#services {
+    padding: 3rem 2rem;
+    background-color: #121212;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+    color: #86bbd8;
+}
+
+.service {
+    margin: 2rem 0;
+}
+
+.service h3 {
+    font-size: 1.8rem;
+    color: #f6ae2d;
+}
+
+.service p {
+    font-size: 1.1rem;
+}
+
+/* Contact Section */
+#contact {
+    padding: 3rem 2rem;
+    background-color: #2f4858;
+    text-align: center;
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+#contact-form label {
+    font-size: 1.2rem;
+    color: #86bbd8;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #86bbd8;
+    background-color: #121212;
+    color: #ddd;
+}
+
+#contact-form button {
+    padding: 10px 20px;
+    background-color: #33658a;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #f6ae2d;
+}
+
+/* Footer */
+footer {
+    background-color: #2f4858;
+    padding: 1rem 0;
+    text-align: center;
+    color: #ddd;
+}
